@@ -137,6 +137,47 @@
     font-size: 0.95rem;
 }
 
+/* "See how it works" — quiet text button with a play chip */
+.hero-btn-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+}
+
+.hero-btn-play:hover {
+    color: var(--ink);
+}
+
+.hero-play-icon {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--paper-card);
+    color: var(--accent);
+    font-size: 0.6rem;
+    padding-left: 0.12rem;
+    box-shadow: 0 1px 2px rgba(15, 15, 15, 0.06);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-btn-play:hover .hero-play-icon {
+    border-color: var(--accent);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(26, 71, 42, 0.14);
+}
+
 /* ------------------------------------------------------------------ */
 /* Proof row                                                          */
 /* ------------------------------------------------------------------ */
@@ -315,4 +356,103 @@
 @media (max-width: 600px) {
     .hero { padding: 3.5rem 1.25rem 2.5rem; }
     .hero-proof { gap: 0.7rem 1rem; }
+}
+
+/* ================================================================== */
+/* "See how it works" video modal                                     */
+/* ================================================================== */
+
+.video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.video-modal.is-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.video-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.72);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    animation: modalFade 0.25s ease both;
+}
+
+.video-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 880px;
+    animation: modalRise 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.video-modal-frame {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+}
+
+.video-modal-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -2.85rem;
+    right: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: grid;
+    place-items: center;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.9rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.video-modal-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 600px) {
+    .video-modal-close {
+        top: -2.6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .video-modal-backdrop,
+    .video-modal-dialog {
+        animation: none;
+    }
+}
+
+@keyframes modalFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes modalRise {
+    from { opacity: 0; transform: translateY(16px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }

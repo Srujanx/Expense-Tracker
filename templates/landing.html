@@ -27,6 +27,10 @@
                 Start tracking free
                 <span class="hero-btn-arrow" aria-hidden="true">→</span>
             </a>
+            <button type="button" class="hero-btn-play" id="howItWorksOpen">
+                <span class="hero-play-icon" aria-hidden="true">▶</span>
+                See how it works
+            </button>
             <a href="{{ url_for('login') }}" class="btn-ghost hero-btn-ghost">Sign in</a>
         </div>
         <ul class="hero-proof">
@@ -108,4 +112,62 @@
     </div>
 </section>
 
+<!-- "See how it works" video modal -->
+<div class="video-modal" id="howItWorksModal" aria-hidden="true">
+    <div class="video-modal-backdrop" data-modal-close></div>
+    <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="How Spendly works">
+        <button type="button" class="video-modal-close" aria-label="Close" data-modal-close>&times;</button>
+        <div class="video-modal-frame">
+            <!-- Placeholder video — replace data-src with the real YouTube embed URL later -->
+            <iframe
+                id="howItWorksVideo"
+                title="How Spendly works"
+                data-src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    (function () {
+        var modal = document.getElementById('howItWorksModal');
+        if (!modal) return;
+
+        var openBtn = document.getElementById('howItWorksOpen');
+        var iframe = document.getElementById('howItWorksVideo');
+        var baseSrc = iframe.getAttribute('data-src');
+
+        function openModal() {
+            var sep = baseSrc.indexOf('?') === -1 ? '?' : '&';
+            iframe.src = baseSrc + sep + 'autoplay=1&rel=0';
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            // Clearing the src tears down the player so the video stops immediately.
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        openBtn.addEventListener('click', openModal);
+
+        // Close when clicking the X or the backdrop (anything marked data-modal-close).
+        modal.addEventListener('click', function (e) {
+            if (e.target.hasAttribute('data-modal-close')) closeModal();
+        });
+
+        // Convenience: close on Escape.
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    })();
+</script>
 {% endblock %}
