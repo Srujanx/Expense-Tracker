@@ -1,0 +1,318 @@
+/* ================================================================== */
+/* Landing — Hero                                                      */
+/* Loaded after style.css, so equal-specificity rules here win.        */
+/* Everything is namespaced under .hero / .mock-* so no other section  */
+/* of the page is affected.                                            */
+/* ================================================================== */
+
+.hero {
+    position: relative;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 5rem;
+    padding: 6.5rem 2rem 5.5rem;
+    align-items: center;
+    overflow: visible;
+}
+
+/* Soft ambient wash sitting behind the visual — adds depth without noise */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -4%;
+    width: 540px;
+    height: 540px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(26, 71, 42, 0.07), transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-copy,
+.hero-visual {
+    position: relative;
+    z-index: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Eyebrow                                                             */
+/* ------------------------------------------------------------------ */
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.75rem;
+}
+
+.hero-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Headline                                                            */
+/* ------------------------------------------------------------------ */
+
+.hero-title {
+    font-size: clamp(2.75rem, 5.2vw, 4.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title em {
+    position: relative;
+    font-style: italic;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+/* A quiet gold underline beneath the accent word */
+.hero-title em::after {
+    content: "";
+    position: absolute;
+    left: 0.02em;
+    right: 0.02em;
+    bottom: 0.06em;
+    height: 0.1em;
+    background: var(--accent-2);
+    opacity: 0.5;
+    border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Subtitle                                                            */
+/* ------------------------------------------------------------------ */
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--ink-muted);
+    max-width: 31rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Actions                                                            */
+/* ------------------------------------------------------------------ */
+
+.hero-actions {
+    gap: 0.85rem;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 2px rgba(15, 15, 15, 0.16);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(15, 15, 15, 0.16);
+}
+
+.hero-btn-arrow {
+    font-size: 1.05rem;
+    transition: transform 0.25s ease;
+}
+
+.hero-btn:hover .hero-btn-arrow {
+    transform: translateX(3px);
+}
+
+.hero-btn-ghost {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Proof row                                                          */
+/* ------------------------------------------------------------------ */
+
+.hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.1rem;
+    margin-top: 2.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+}
+
+.hero-proof li {
+    position: relative;
+    padding-left: 1.1rem;
+}
+
+.hero-proof li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    margin-top: -2.5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.55;
+}
+
+/* ------------------------------------------------------------------ */
+/* Visual — statement card + floating chip                            */
+/* ------------------------------------------------------------------ */
+
+.hero-visual {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mock-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 2.25rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
+    box-shadow:
+        0 1px 1px rgba(15, 15, 15, 0.04),
+        0 18px 40px -14px rgba(15, 15, 15, 0.16),
+        0 40px 80px -28px rgba(26, 71, 42, 0.12);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+}
+
+.mock-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 1px 1px rgba(15, 15, 15, 0.04),
+        0 28px 56px -14px rgba(15, 15, 15, 0.20),
+        0 60px 110px -30px rgba(26, 71, 42, 0.16);
+}
+
+.mock-card-header {
+    margin-bottom: 1.85rem;
+    padding-bottom: 1.35rem;
+}
+
+.mock-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+}
+
+.mock-total {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+}
+
+.mock-bars {
+    gap: 1.15rem;
+}
+
+.mock-bar {
+    background: linear-gradient(90deg, var(--accent), #2f6b46);
+}
+
+/* Floating "logged today" chip — a single layered detail for life */
+.mock-float {
+    position: absolute;
+    left: -1.25rem;
+    bottom: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 0.95rem 0.5rem 0.55rem;
+    border-radius: 999px;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    box-shadow: 0 14px 30px -10px rgba(15, 15, 15, 0.20);
+}
+
+.mock-float-icon {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion — gentle entrance, gated on reduced-motion preference        */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-eyebrow,
+    .hero-title,
+    .hero-subtitle,
+    .hero-actions,
+    .hero-proof,
+    .hero-visual {
+        animation: heroRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .hero-title    { animation-delay: 0.06s; }
+    .hero-subtitle { animation-delay: 0.12s; }
+    .hero-actions  { animation-delay: 0.18s; }
+    .hero-proof    { animation-delay: 0.24s; }
+    .hero-visual   { animation-delay: 0.12s; }
+
+    .hero-dot {
+        animation: heroPulse 2.8s ease-out infinite;
+    }
+}
+
+@keyframes heroRise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(26, 71, 42, 0.30); }
+    70%  { box-shadow: 0 0 0 7px rgba(26, 71, 42, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(26, 71, 42, 0); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive — re-declared here so these win over style.css           */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+        padding: 4.5rem 1.5rem 3.5rem;
+    }
+
+    .hero-eyebrow { justify-content: center; }
+    .hero-subtitle { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-proof { justify-content: center; }
+    .hero-visual { display: none; }
+    .hero::after { display: none; }
+}
+
+@media (max-width: 600px) {
+    .hero { padding: 3.5rem 1.25rem 2.5rem; }
+    .hero-proof { gap: 0.7rem 1rem; }
+}

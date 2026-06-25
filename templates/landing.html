@@ -2,30 +2,45 @@
 
 {% block title %}Spendly — Track Every Rupee{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
 {% block content %}
 
 <section class="hero">
-    <div class="hero-inner">
-        <div class="hero-badge">Personal Finance Tracker</div>
+    <div class="hero-copy">
+        <div class="hero-eyebrow">
+            <span class="hero-dot"></span>
+            Personal expense tracking
+        </div>
         <h1 class="hero-title">
-            Know where your<br>
-            <em>money goes</em>
+            Know exactly where<br>
+            your <em>money</em> goes.
         </h1>
         <p class="hero-subtitle">
-            Log expenses, understand your spending patterns,
-            and take control of your financial life —
-            one transaction at a time.
+            Log expenses in seconds and watch your spending take shape —
+            so every rupee becomes a decision, not an afterthought.
         </p>
         <div class="hero-actions">
-            <a href="{{ url_for('register') }}" class="btn-primary">Start tracking free</a>
-            <a href="{{ url_for('login') }}" class="btn-ghost">Sign in</a>
+            <a href="{{ url_for('register') }}" class="btn-primary hero-btn">
+                Start tracking free
+                <span class="hero-btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="{{ url_for('login') }}" class="btn-ghost hero-btn-ghost">Sign in</a>
         </div>
+        <ul class="hero-proof">
+            <li>Free, forever</li>
+            <li>No bank linking</li>
+            <li>Private by design</li>
+        </ul>
     </div>
+
     <div class="hero-visual">
         <div class="mock-card">
             <div class="mock-card-header">
-                <span class="mock-label">March 2026</span>
-                <span class="mock-total">₹12,450</span>
+                <span class="mock-label">June 2026</span>
+                <span class="mock-total">$12,450</span>
             </div>
             <div class="mock-bars">
                 <div class="mock-bar-row">
@@ -33,30 +48,34 @@
                     <div class="mock-bar-track">
                         <div class="mock-bar" style="width: 72%"></div>
                     </div>
-                    <span class="mock-amt">₹4,500</span>
+                    <span class="mock-amt">$4,500</span>
                 </div>
                 <div class="mock-bar-row">
                     <span class="mock-cat">Food</span>
                     <div class="mock-bar-track">
                         <div class="mock-bar mock-bar-2" style="width: 52%"></div>
                     </div>
-                    <span class="mock-amt">₹3,200</span>
+                    <span class="mock-amt">$3,200</span>
                 </div>
                 <div class="mock-bar-row">
                     <span class="mock-cat">Health</span>
                     <div class="mock-bar-track">
                         <div class="mock-bar mock-bar-3" style="width: 33%"></div>
                     </div>
-                    <span class="mock-amt">₹2,050</span>
+                    <span class="mock-amt">$2,050</span>
                 </div>
                 <div class="mock-bar-row">
                     <span class="mock-cat">Transport</span>
                     <div class="mock-bar-track">
                         <div class="mock-bar mock-bar-4" style="width: 28%"></div>
                     </div>
-                    <span class="mock-amt">₹1,800</span>
+                    <span class="mock-amt">$1,800</span>
                 </div>
             </div>
+        </div>
+        <div class="mock-float">
+            <span class="mock-float-icon" aria-hidden="true">✓</span>
+            $240 logged today
         </div>
     </div>
 </section>
@@ -64,7 +83,7 @@
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
-            <div class="feature-icon">₹</div>
+            <div class="feature-icon">$</div>
             <h3 class="feature-title">Log expenses instantly</h3>
             <p class="feature-body">Add any expense in seconds. Category, amount, date, description — all in one simple form.</p>
         </div>
