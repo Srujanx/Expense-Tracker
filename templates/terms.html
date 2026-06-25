@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Terms and Conditions — Spendly{% endblock %}
+
+{% block head %}
+<style>
+    .legal {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 4rem 2rem 5rem;
+    }
+    .legal-header {
+        margin-bottom: 2.5rem;
+    }
+    .legal-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.25rem, 4vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin-bottom: 0.75rem;
+    }
+    .legal-updated {
+        font-size: 0.9rem;
+        color: var(--ink-muted);
+    }
+    .legal h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: var(--ink);
+        margin: 2.5rem 0 0.85rem;
+    }
+    .legal p {
+        font-size: 1rem;
+        color: var(--ink-soft);
+        line-height: 1.75;
+        margin-bottom: 1rem;
+    }
+    .legal ul {
+        margin: 0 0 1rem 1.25rem;
+        color: var(--ink-soft);
+        line-height: 1.75;
+    }
+    .legal li {
+        margin-bottom: 0.4rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="legal">
+    <div class="legal-header">
+        <h1 class="legal-title">Terms and Conditions</h1>
+        <p class="legal-updated">Last updated: June 24, 2026</p>
+    </div>
+
+    <p>
+        Welcome to Spendly. These Terms and Conditions ("Terms") govern your use of the
+        Spendly personal expense tracking application and related services (the "Service").
+        Please read them carefully before using the Service.
+    </p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>
+        By creating an account, accessing, or using Spendly, you agree to be bound by these
+        Terms and our handling of your information as described below. If you do not agree
+        with any part of these Terms, you should not use the Service. If you are using the
+        Service on behalf of someone else, you confirm that you are authorized to accept
+        these Terms on their behalf.
+    </p>
+
+    <h2>2. Use of Service</h2>
+    <p>
+        Spendly provides tools to help you log expenses, organize them by category, and
+        review your personal spending patterns. You agree to use the Service only for lawful,
+        personal, non-commercial purposes. In particular, you agree that you will:
+    </p>
+    <ul>
+        <li>Provide accurate information when creating and maintaining your account;</li>
+        <li>Keep your login credentials confidential and secure;</li>
+        <li>Not attempt to disrupt, reverse engineer, or gain unauthorized access to the Service;</li>
+        <li>Not use the Service to store or transmit unlawful, harmful, or fraudulent content.</li>
+    </ul>
+    <p>
+        You are responsible for all activity that occurs under your account.
+    </p>
+
+    <h2>3. User Data</h2>
+    <p>
+        The expense records, categories, and other information you enter into Spendly belong
+        to you. We collect and store this data only to provide the Service to you — such as
+        displaying your transactions and generating spending summaries. We do not sell your
+        personal financial data to third parties.
+    </p>
+    <p>
+        You are responsible for the accuracy of the data you enter. While we take reasonable
+        measures to protect your information, no method of electronic storage is completely
+        secure, and we cannot guarantee absolute security. For more detail on how we handle
+        your information, please review our Privacy Policy.
+    </p>
+
+    <h2>4. Limitations of Liability</h2>
+    <p>
+        Spendly is provided on an "as is" and "as available" basis, without warranties of any
+        kind, whether express or implied. The Service is intended as a personal budgeting and
+        tracking aid and does not constitute financial, tax, or investment advice.
+    </p>
+    <p>
+        To the fullest extent permitted by law, Spendly and its operators shall not be liable
+        for any indirect, incidental, or consequential damages, or for any loss of data,
+        revenue, or profits arising from your use of — or inability to use — the Service. You
+        use the Service at your own discretion and risk.
+    </p>
+
+    <h2>5. Changes to Terms</h2>
+    <p>
+        We may update these Terms from time to time to reflect changes to the Service or for
+        legal and regulatory reasons. When we make material changes, we will update the "Last
+        updated" date above. Your continued use of the Service after any changes take effect
+        constitutes your acceptance of the revised Terms. We encourage you to review this page
+        periodically.
+    </p>
+
+    <p>
+        If you have any questions about these Terms, please contact us through the support
+        channels provided within the application.
+    </p>
+</section>
+
+{% endblock %}
